@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import opsflowOverview from '../../assets/images/opsflow/opsflow-dashboard.png';
+import autosHero from '../../assets/images/double-s-e-autos/autos-hero.png';
+import zannorCover from '../../assets/images/zannor/zannor-cover.png';
+import kyautaHealthHero from '../../assets/images/kyauta-health/kyauta-hero.png';
 
 export function ProjectCard({ project, featured = false }) {
   return (
@@ -7,8 +10,15 @@ export function ProjectCard({ project, featured = false }) {
       id={`project-${project.id}`}
       className={`project-card project-card--${project.accent} ${featured ? "project-card--featured" : ""}`}
     >
+      <Link
+        to={`/projects/${project.id}`}
+        className="project-card-link"
+        aria-label={`View ${project.title} project`}
+      >
+        <span className="sr-only">View project</span>
+      </Link>
       <div className="project-art" aria-hidden="true">
-        {project.id === 'opsflow' ? <img className="project-art-image" src={opsflowOverview} alt="" /> : <div className="project-browser">
+        {project.id === 'kyauta-health' ? <img className="project-art-image" src={kyautaHealthHero} alt="" /> : project.id === 'alinvero' ? <img className="project-art-image" src={opsflowOverview} alt="" /> : project.id === 'double-s-e-autos' ? <img className="project-art-image" src={autosHero} alt="" /> : project.id === 'zannor' ? <img className="project-art-image" src={zannorCover} alt="" /> : <div className="project-browser">
           <div className="browser-bar">
             <i />
             <i />
@@ -42,13 +52,9 @@ export function ProjectCard({ project, featured = false }) {
           ))}
         </ul>
         <div className="project-actions">
-          <Link
-            to={`/projects/${project.id}`}
-            className="text-link"
-            aria-label={`Explore ${project.title}`}
-          >
+          <span className="text-link" aria-hidden="true">
             Explore project <span aria-hidden="true">↗</span>
-          </Link>
+          </span>
           {project.liveUrl ? (
             <a href={project.liveUrl} target="_blank" rel="noreferrer" className="project-live-link">
               Live product <span aria-hidden="true">↗</span>

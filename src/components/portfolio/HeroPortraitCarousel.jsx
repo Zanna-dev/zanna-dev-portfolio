@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import portraitClassic from "../../assets/images/noro-portrait.webp";
+import portraitPlum from "../../assets/images/noro-portrait-plum.png";
 import portraitEditorial from "../../assets/images/noro-portrait-editorial.webp";
 import portraitStudio from "../../assets/images/noro-portrait-studio.webp";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 
 const slides = [
   {
-    src: portraitClassic,
-    alt: "Noro Pam in a navy blazer",
-    label: "Professional portrait",
+    src: portraitPlum,
+    alt: "Noro Pam in a plum blazer",
+    label: "Plum blazer portrait",
   },
   {
     src: portraitEditorial,
